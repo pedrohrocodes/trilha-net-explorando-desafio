@@ -17,6 +17,9 @@ namespace DesafioProjetoHospedagem.Models
 
         public void CadastrarHospedes(List<Pessoa> hospedes)
         {
+            if (Suite.Capacidade <= 0)
+                throw new Exception("Suíte não disponível para hóspedes!");
+            
             if (hospedes.Count > Suite.Capacidade)
                 throw new Exception("Quantidade de hóspedes não permitida para este suíte!");
 
